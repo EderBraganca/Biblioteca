@@ -15,6 +15,11 @@ public class DAOAutor implements DAOInterface<Autor>{
     public void cadastrar(Autor objeto) {
         listaAutores.add(objeto);
     }
+    
+    public void cadastrar(int id, String nome, String sobreNome, String biografia) {
+        Autor objeto = new Autor(biografia, id, nome, sobreNome);
+        cadastrar(objeto);
+    }
 
     @Override
     public List<Autor> listar() {

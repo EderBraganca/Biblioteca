@@ -7,13 +7,17 @@ import java.util.List;
 public class DAOFuncionario implements DAOInterface<Funcionario>{
     private List<Funcionario> listaFuncionarios;
 
-    public DAOFuncionario(List<Funcionario> listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
+    public DAOFuncionario() {
     }
 
     @Override
     public void cadastrar(Funcionario objeto) {     
         listaFuncionarios.add(objeto);
+    }
+    
+    public void cadastrar(int id, String nome, String sobreNome, int matricula){
+        Funcionario objeto = new Funcionario(matricula, id, nome, sobreNome);
+        cadastrar(objeto);
     }
 
     @Override

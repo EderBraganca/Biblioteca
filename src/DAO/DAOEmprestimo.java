@@ -1,6 +1,7 @@
 package DAO;
 
 import Modelo.Emprestimo;
+import java.util.Date;
 import java.util.List;
 
 
@@ -15,6 +16,11 @@ public class DAOEmprestimo implements DAOInterface<Emprestimo>{
     public void cadastrar(Emprestimo objeto) {
         listaEmprestimos.add(objeto);
     }
+    
+    public void cadastrar(int id, int idFuncionario, int idUsuario, int idLivro, Date dataEmprestimo){
+        Emprestimo objeto = new Emprestimo(id, dataEmprestimo, idFuncionario, idUsuario, idLivro);
+        cadastrar(objeto);
+    }
 
     @Override
     public List<Emprestimo> listar() {
@@ -26,9 +32,9 @@ public class DAOEmprestimo implements DAOInterface<Emprestimo>{
         for(Emprestimo x : listaEmprestimos){
             if(x.getId() == objeto.getId()){
                 x.setDataEmprestimo(objeto.getDataEmprestimo());
-                x.setFuncionarioEmp(objeto.getFuncionarioEmp());
-                x.setLivroEmp(objeto.getLivroEmp());
-                x.setUsuarioEmp(objeto.getUsuarioEmp());
+                x.setIdFuncionario(objeto.getIdFuncionario());
+                x.setIdLivro(objeto.getIdLivro());
+                x.setIdUsuario(objeto.getIdUsuario());
                 break;
             }
         }

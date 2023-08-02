@@ -15,6 +15,11 @@ public class DAOUsuario implements DAOInterface<Usuario>{
     public void cadastrar(Usuario objeto) {
         listaUsuarios.add(objeto);
     }
+   
+    public void cadastrar(int id, String nome, String sobreNome, int registroAcademico) {
+        Usuario objeto = new Usuario(registroAcademico, id, nome, sobreNome);
+        cadastrar(objeto);
+    }
 
     @Override
     public List<Usuario> listar() {

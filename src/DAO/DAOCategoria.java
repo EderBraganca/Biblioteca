@@ -15,6 +15,11 @@ public class DAOCategoria implements DAOInterface<Categoria>{
     public void cadastrar(Categoria objeto) {
         listaCategorias.add(objeto);
     }
+    
+    public void cadastrar(int id, String titulo){
+        Categoria objeto = new Categoria(id, titulo);
+        cadastrar(objeto);
+    }
 
     @Override
     public List<Categoria> listar() {

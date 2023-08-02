@@ -15,6 +15,11 @@ public class DAOLivro implements DAOInterface<Livro>{
     public void cadastrar(Livro objeto) {
         listaLivros.add(objeto);
     }
+    
+    public void cadastrar(int id, String titulo, List<Integer> categoria, List<Integer> autor) {
+        Livro objeto = new Livro(id, titulo, categoria, autor);
+        cadastrar(objeto);
+    }
 
     @Override
     public List<Livro> listar() {
