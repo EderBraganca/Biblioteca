@@ -1,4 +1,5 @@
 package Interface;
+import Dados.Dados;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
@@ -6,7 +7,7 @@ import javax.swing.*;
 public class BibliotecaInterface {
     Dados dados = new Dados();
     
-    public static void main(String[] args) {
+    public static void InterfaceInicial(String[] args) {
         ActionListener acaoBotaoFunc = (ActionEvent e) -> {
             telaCrudFuncionario();
         };

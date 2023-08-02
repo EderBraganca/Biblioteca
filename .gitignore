@@ -7,3 +7,5 @@ nbactions.xml
 nb-configuration.xml
 nb-configuration/
 *.log
+nbproject/project.properties
+*.properties
