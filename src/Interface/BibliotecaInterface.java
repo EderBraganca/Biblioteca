@@ -1,10 +1,12 @@
 package Interface;
+import DAO.DAOFuncionario;
 import Dados.Dados;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class BibliotecaInterface {
+    DAOFuncionario funcionario = new DAOFuncionario();
     Dados dados = new Dados();
     
     public static void InterfaceInicial(String[] args) {
@@ -21,7 +23,7 @@ public class BibliotecaInterface {
             telaCrudUsuario();
         };
         ActionListener acaoBotaoEmp = (ActionEvent e) -> {
-            telaEmprestimo();
+            telaOperacoes();
         };
         ActionListener acaoBotaoCategoria = (ActionEvent e) -> {
             telaCrudCategoria();
@@ -80,6 +82,55 @@ public class BibliotecaInterface {
         telaFuncionario.setVisible(true);
     };
     
+    public static void telaCadastrarFuncionario(){
+        int matricula = 0; String nome = "", sobreNome = "";
+        
+        JFrame telaCadastro = new JFrame("Tela Cadastro");
+        telaCadastro.setSize(600, 600);
+        JPanel panelCadastro = new JPanel();
+        
+        JLabel inputIdLabel = new JLabel("Id");
+        JTextField inputId = new JTextField(10);
+        
+        
+        
+        JButton calcelarBt = new JButton("Cancelar");
+        JButton salvarBt = new JButton("Salvar");
+        
+        salvarBt.addActionListener(e -> {
+            try {
+                int id = Integer.parseInt(inputId.getText());
+                //funcionario.cadastrar(id, nome, sobreNome, matricula);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Valores invalidos!");
+            }
+        });
+        
+        panelCadastro.add(inputIdLabel);
+        panelCadastro.add(inputId);
+        panelCadastro.add(calcelarBt);
+        panelCadastro.add(salvarBt);
+        
+        telaCadastro.add(panelCadastro);
+        telaCadastro.setVisible(true);
+    };
+    
+    public static void telaListarFuncionario(){
+        JFrame telaFuncionario = new JFrame("Tela Listagem");
+        telaFuncionario.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton cadastrarBt = new JButton("Cadastrar");
+        JButton listarBt = new JButton("Listar");
+
+        panelCadastro.add(cadastrarBt);
+        panelCadastro.add(listarBt);
+        
+        telaFuncionario.add(panelCadastro);
+        telaFuncionario.setVisible(true);
+    };
+    
     public static void telaCrudUsuario(){
         JFrame telaUsuario = new JFrame("Tela Usuario");
         telaUsuario.setSize(600, 600);
@@ -94,6 +145,38 @@ public class BibliotecaInterface {
         
         telaUsuario.add(panelUsuario);
         telaUsuario.setVisible(true);
+    };
+    
+    public static void telaCadastrarUsuario(){
+        JFrame telaCadastro = new JFrame("Tela Cadastro");
+        telaCadastro.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton calcelarBt = new JButton("Cancelar");
+        JButton salvarBt = new JButton("Salvar");
+
+        panelCadastro.add(calcelarBt);
+        panelCadastro.add(salvarBt);
+        
+        telaCadastro.add(panelCadastro);
+        telaCadastro.setVisible(true);
+    };
+    
+    public static void telaListarUsuario(){
+        JFrame telaFuncionario = new JFrame("Tela Listagem");
+        telaFuncionario.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton cadastrarBt = new JButton("Cadastrar");
+        JButton listarBt = new JButton("Listar");
+
+        panelCadastro.add(cadastrarBt);
+        panelCadastro.add(listarBt);
+        
+        telaFuncionario.add(panelCadastro);
+        telaFuncionario.setVisible(true);
     };
     
     public static void telaCrudAutor(){
@@ -112,6 +195,38 @@ public class BibliotecaInterface {
         telaAutor.setVisible(true);
     };
     
+    public static void telaCadastrarAutor(){
+        JFrame telaCadastro = new JFrame("Tela Cadastro");
+        telaCadastro.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton calcelarBt = new JButton("Cancelar");
+        JButton salvarBt = new JButton("Salvar");
+
+        panelCadastro.add(calcelarBt);
+        panelCadastro.add(salvarBt);
+        
+        telaCadastro.add(panelCadastro);
+        telaCadastro.setVisible(true);
+    };
+    
+    public static void telaListarAutor(){
+        JFrame telaFuncionario = new JFrame("Tela Listagem");
+        telaFuncionario.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton cadastrarBt = new JButton("Cadastrar");
+        JButton listarBt = new JButton("Listar");
+
+        panelCadastro.add(cadastrarBt);
+        panelCadastro.add(listarBt);
+        
+        telaFuncionario.add(panelCadastro);
+        telaFuncionario.setVisible(true);
+    };
+    
     public static void telaCrudLivro(){
         JFrame telaLivro = new JFrame("Tela Livro");
         telaLivro.setSize(600, 600);
@@ -126,6 +241,38 @@ public class BibliotecaInterface {
         
         telaLivro.add(panelLivro);
         telaLivro.setVisible(true);
+    };
+    
+    public static void telaCadastrarLivro(){
+        JFrame telaCadastro = new JFrame("Tela Cadastro");
+        telaCadastro.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton calcelarBt = new JButton("Cancelar");
+        JButton salvarBt = new JButton("Salvar");
+
+        panelCadastro.add(calcelarBt);
+        panelCadastro.add(salvarBt);
+        
+        telaCadastro.add(panelCadastro);
+        telaCadastro.setVisible(true);
+    };
+    
+    public static void telaListarLivro(){
+        JFrame telaFuncionario = new JFrame("Tela Listagem");
+        telaFuncionario.setSize(600, 600);
+        
+        JPanel panelFuncionario = new JPanel();
+        
+        JButton cadastrarBt = new JButton("Cadastrar");
+        JButton listarBt = new JButton("Listar");
+
+        panelFuncionario.add(cadastrarBt);
+        panelFuncionario.add(listarBt);
+        
+        telaFuncionario.add(panelFuncionario);
+        telaFuncionario.setVisible(true);
     };
     
     public static void telaCrudCategoria(){
@@ -144,19 +291,83 @@ public class BibliotecaInterface {
         telaCategoria.setVisible(true);
     };
     
-    public static void telaEmprestimo(){
-        JFrame telaEmprestimo = new JFrame("Tela Emprestimo");
+    public static void telaCadastrarCategoria(){
+        JFrame telaCadastro = new JFrame("Tela Cadastro");
+        telaCadastro.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton calcelarBt = new JButton("Cancelar");
+        JButton salvarBt = new JButton("Salvar");
+
+        panelCadastro.add(calcelarBt);
+        panelCadastro.add(salvarBt);
+        
+        telaCadastro.add(panelCadastro);
+        telaCadastro.setVisible(true);
+    };
+    
+    public static void telaListarCategoria(){
+        JFrame telaCadastro = new JFrame("Tela Listagem");
+        telaCadastro.setSize(600, 600);
+        
+        JPanel panelFuncionario = new JPanel();
+        
+        JButton cadastrarBt = new JButton("Cadastrar");
+        JButton listarBt = new JButton("Listar");
+
+        panelFuncionario.add(cadastrarBt);
+        panelFuncionario.add(listarBt);
+        
+        telaCadastro.add(panelFuncionario);
+        telaCadastro.setVisible(true);
+    };
+    
+    public static void telaOperacoes(){
+        JFrame telaEmprestimo = new JFrame("Tela Operacoes");
         telaEmprestimo.setSize(600, 600);
         
         JPanel panelEmprestimo = new JPanel();
         
         JButton realizarEmpBt = new JButton("Cadastrar Emprestimo");
-        JButton consultarBt = new JButton("Listar");
+        JButton consultarBt = new JButton("Consultar Livro");
 
         panelEmprestimo.add(realizarEmpBt);
         panelEmprestimo.add(consultarBt);
         
         telaEmprestimo.add(panelEmprestimo);
         telaEmprestimo.setVisible(true);
+    };
+    
+    public static void telaCadastrarEmprestimo(){
+        JFrame telaCadastro = new JFrame("Tela Cadastro");
+        telaCadastro.setSize(600, 600);
+        
+        JPanel panelCadastro = new JPanel();
+        
+        JButton calcelarBt = new JButton("Cancelar");
+        JButton salvarBt = new JButton("Salvar");
+
+        panelCadastro.add(calcelarBt);
+        panelCadastro.add(salvarBt);
+        
+        telaCadastro.add(panelCadastro);
+        telaCadastro.setVisible(true);
+    };
+    
+    public static void telaConsultar(){
+        JFrame telaFuncionario = new JFrame("Tela Consulta");
+        telaFuncionario.setSize(600, 600);
+        
+        JPanel panelFuncionario = new JPanel();
+        
+        JButton cadastrarBt = new JButton("Cadastrar");
+        JButton listarBt = new JButton("Listar");
+
+        panelFuncionario.add(cadastrarBt);
+        panelFuncionario.add(listarBt);
+        
+        telaFuncionario.add(panelFuncionario);
+        telaFuncionario.setVisible(true);
     };
 }
