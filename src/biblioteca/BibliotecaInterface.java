@@ -3,46 +3,28 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
-public class Biblioteca {
+public class BibliotecaInterface {
+    Dados dados = new Dados();
     
     public static void main(String[] args) {
-        ActionListener acaoBotaoFunc = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                telaCrudFuncionario();
-            }
+        ActionListener acaoBotaoFunc = (ActionEvent e) -> {
+            telaCrudFuncionario();
         };
-        ActionListener acaoBotaoUsuario = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                telaCrudUsuario();
-            }
+        ActionListener acaoBotaoUsuario = (ActionEvent e) -> {
+            telaCrudUsuario();
         };
-        ActionListener acaoBotaoAutor = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                telaCrudAutor();
-            }
+        ActionListener acaoBotaoAutor = (ActionEvent e) -> {
+            telaCrudAutor();
         };
-        ActionListener acaoBotaoLivro = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                telaCrudUsuario();
-            }
+        ActionListener acaoBotaoLivro = (ActionEvent e) -> {
+            telaCrudUsuario();
         };
-        ActionListener acaoBotaoEmp = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                telaEmprestimo();
-            }
+        ActionListener acaoBotaoEmp = (ActionEvent e) -> {
+            telaEmprestimo();
         };
-        ActionListener acaoBotaoCategoria = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                telaCrudCategoria();
-            }
+        ActionListener acaoBotaoCategoria = (ActionEvent e) -> {
+            telaCrudCategoria();
         };
-        //Dados dados = new Dados();
 
         JFrame telaInicial = new JFrame("Tela Inicial");
         
@@ -63,9 +45,6 @@ public class Biblioteca {
         crudLivroBt.addActionListener(acaoBotaoLivro);
         menu.add(crudLivroBt);
         
-        JButton crudEmprestimoBt = new JButton("Emprestimo");
-        crudEmprestimoBt.addActionListener(acaoBotaoEmp);
-        menu.add(crudEmprestimoBt);
         
         JButton crudAutorBt = new JButton("Autor");
         crudAutorBt.addActionListener(acaoBotaoAutor);
@@ -75,6 +54,10 @@ public class Biblioteca {
         crudCategoriaBt.addActionListener(acaoBotaoCategoria);
         menu.add(crudCategoriaBt);
         
+        JButton crudEmprestimoBt = new JButton("Operacoes");
+        crudEmprestimoBt.addActionListener(acaoBotaoEmp);
+        menu.add(crudEmprestimoBt);
+        
         telaInicial.add(menu);
         
         telaInicial.setVisible(true);
@@ -83,7 +66,6 @@ public class Biblioteca {
     public static void telaCrudFuncionario(){
         JFrame telaFuncionario = new JFrame("Tela Funcionario");
         telaFuncionario.setSize(600, 600);
-        telaFuncionario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JPanel panelFuncionario = new JPanel();
         
@@ -100,7 +82,6 @@ public class Biblioteca {
     public static void telaCrudUsuario(){
         JFrame telaUsuario = new JFrame("Tela Usuario");
         telaUsuario.setSize(600, 600);
-        telaUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JPanel panelUsuario = new JPanel();
         
@@ -117,7 +98,6 @@ public class Biblioteca {
     public static void telaCrudAutor(){
         JFrame telaAutor = new JFrame("Tela Autor");
         telaAutor.setSize(600, 600);
-        telaAutor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JPanel panelAutor = new JPanel();
         
@@ -134,7 +114,6 @@ public class Biblioteca {
     public static void telaCrudLivro(){
         JFrame telaLivro = new JFrame("Tela Livro");
         telaLivro.setSize(600, 600);
-        telaLivro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JPanel panelLivro = new JPanel();
         
@@ -151,7 +130,6 @@ public class Biblioteca {
     public static void telaCrudCategoria(){
         JFrame telaCategoria = new JFrame("Tela Categoria");
         telaCategoria.setSize(600, 600);
-        telaCategoria.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JPanel panelCategoria = new JPanel();
         
@@ -166,6 +144,18 @@ public class Biblioteca {
     };
     
     public static void telaEmprestimo(){
-    
+        JFrame telaEmprestimo = new JFrame("Tela Emprestimo");
+        telaEmprestimo.setSize(600, 600);
+        
+        JPanel panelEmprestimo = new JPanel();
+        
+        JButton realizarEmpBt = new JButton("Cadastrar Emprestimo");
+        JButton consultarBt = new JButton("Listar");
+
+        panelEmprestimo.add(realizarEmpBt);
+        panelEmprestimo.add(consultarBt);
+        
+        telaEmprestimo.add(panelEmprestimo);
+        telaEmprestimo.setVisible(true);
     };
 }
