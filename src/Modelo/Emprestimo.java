@@ -5,16 +5,16 @@ import java.util.Date;
 public class Emprestimo {
     private int id;
     private Date dataEmprestimo;
-    private Funcionario funcionarioEmp; 
-    private Usuario usuarioEmp;
-    private Livro livroEmp;
+    private int idFuncionario; 
+    private int idUsuario;
+    private int idLivro;
 
-    public Emprestimo(int id, Date dataEmprestimo, Funcionario funcionarioEmp, Usuario usuarioEmp, Livro livroEmp) {
+    public Emprestimo(int id, Date dataEmprestimo, int idFuncionario, int idUsuario, int idLivro) {
         this.id = id;
         this.dataEmprestimo = dataEmprestimo;
-        this.funcionarioEmp = funcionarioEmp;
-        this.usuarioEmp = usuarioEmp;
-        this.livroEmp = livroEmp;
+        this.idFuncionario = idFuncionario;
+        this.idUsuario = idUsuario;
+        this.idLivro = idLivro;
     }
 
     public Date getDataEmprestimo() {
@@ -32,28 +32,29 @@ public class Emprestimo {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getIdLivro() {
+        return idLivro;
+    }
+
+    public void setIdLivro(int idLivro) {
+        this.idLivro = idLivro;
+    }
     
-    public Funcionario getFuncionarioEmp() {
-        return funcionarioEmp;
-    }
-
-    public void setFuncionarioEmp(Funcionario funcionarioEmp) {
-        this.funcionarioEmp = funcionarioEmp;
-    }
-
-    public Usuario getUsuarioEmp() {
-        return usuarioEmp;
-    }
-
-    public void setUsuarioEmp(Usuario usuarioEmp) {
-        this.usuarioEmp = usuarioEmp;
-    }
-
-    public Livro getLivroEmp() {
-        return livroEmp;
-    }
-
-    public void setLivroEmp(Livro livroEmp) {
-        this.livroEmp = livroEmp;
-    }
 }
