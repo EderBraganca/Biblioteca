@@ -2,6 +2,7 @@ package DAO;
 
 import Dados.Dados;
 import Modelo.Livro;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -38,5 +39,17 @@ public class DAOLivro implements DAOInterface<Livro>{
     @Override
     public void remover(Livro objeto) {
         dados.listaLivros.remove(objeto);
+    }
+    
+    public List<Livro> buscarLivroPeloTitulo(String titulo){
+        List<Livro> pesquisa = new ArrayList<>();
+        
+        for(Livro livro : dados.listaLivros){
+            if(titulo.equals(livro.getTitulo())){
+                pesquisa.add(livro);
+            }
+        }
+        
+        return pesquisa;
     }
 }
