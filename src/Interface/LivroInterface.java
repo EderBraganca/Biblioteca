@@ -86,6 +86,7 @@ public class LivroInterface extends BibliotecaInterface{
         List<String> nomesAutores = new ArrayList<>();
         for (Autor autor : listaAutores) {
             nomesAutores.add(autor.getNome());
+            //nomesESobreNomesAutores.add(autor.getNome().concat(autor.getSobreNome()));
         }
         
         JList<String> autoresList = new JList<>(nomesAutores.toArray(new String[0]));
@@ -124,11 +125,11 @@ public class LivroInterface extends BibliotecaInterface{
                 List<Integer> idsAutoresSelecionadas = new ArrayList<>();
 
                 for (String nomeAutor : nomesAutoresSelecionadas) {
-                    int idAutoresSelecionada = mapaCategorias.get(nomeAutor);
+                    int idAutoresSelecionada = mapaAutores.get(nomeAutor);
                     idsAutoresSelecionadas.add(idAutoresSelecionada);
                 }
                 
-                Livro newLivro = new Livro(id, titulo, idsCategoriasSelecionadas, idsAutoresSelecionadas );
+                Livro newLivro = new Livro(id, titulo, idsCategoriasSelecionadas, idsAutoresSelecionadas);
                 livroDAO.cadastrar(newLivro);
                 
                 JOptionPane.showMessageDialog(null, "Salvo com Sucesso!");
@@ -234,8 +235,8 @@ public class LivroInterface extends BibliotecaInterface{
     private void atualizarListaLivros() {
         List<Livro> listaLivros = livroDAO.listar();
         tableModel.setRowCount(0);
-        for (Livro user : listaLivros) {
-            Object[] rowData = {user.getId(), user.getTitulo()};
+        for (Livro livro : listaLivros) {
+            Object[] rowData = {livro.getId(), livro.getTitulo()};
             tableModel.addRow(rowData);
         }
     }
