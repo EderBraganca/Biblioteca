@@ -7,10 +7,6 @@ import java.util.List;
 public class DAOAutor implements DAOInterface<Autor>{
     private List<Autor> listaAutores;
 
-    public DAOAutor(List<Autor> listaAutores) {
-        this.listaAutores = listaAutores;
-    }
-    
     @Override
     public void cadastrar(Autor objeto) {
         listaAutores.add(objeto);
