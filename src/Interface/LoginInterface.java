@@ -20,7 +20,7 @@ public class LoginInterface extends BibliotecaInterface{
     private JTextField txtUsuario, txtSenha;
     private JRadioButton radioFuncionario, radioAdmin, radioUsuario;
 
-    public LoginInterface() {
+    public void telaLogin() {
         dialog = new JDialog();
         dialog.setTitle("Tela de Login");
         dialog.setSize(300, 200);
@@ -36,7 +36,6 @@ public class LoginInterface extends BibliotecaInterface{
         radioAdmin = new JRadioButton("Administrador");
         radioFuncionario = new JRadioButton("Funcionário");
         radioUsuario = new JRadioButton("Usuário");
-        
 
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(radioAdmin);
@@ -54,7 +53,7 @@ public class LoginInterface extends BibliotecaInterface{
                     dialog.dispose();
                 }
             }
-            if (radioFuncionario.isSelected()) {
+            else if (radioFuncionario.isSelected()) {
                 for(Funcionario func : dados.listaFuncionarios){
                     if(func.getMatricula() == Integer.valueOf(usuario)){
                         dialog.dispose();
