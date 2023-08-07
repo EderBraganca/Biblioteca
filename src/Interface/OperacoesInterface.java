@@ -6,20 +6,39 @@ import javax.swing.JPanel;
 
 public class OperacoesInterface {
 
-    public static void telaOperacoes(){
-        JFrame telaEmprestimo = new JFrame("Tela Operacoes");
-        telaEmprestimo.setSize(600, 600);
-        
-        JPanel panelEmprestimo = new JPanel();
-        
-        JButton realizarEmpBt = new JButton("Cadastrar Emprestimo");
-        JButton consultarBt = new JButton("Consultar Livro");
+    public static void telaOperacoesAdmin(){
 
-        panelEmprestimo.add(realizarEmpBt);
-        panelEmprestimo.add(consultarBt);
-        
-        telaEmprestimo.add(panelEmprestimo);
-        telaEmprestimo.setVisible(true);
+    };
+    
+    public static void telaOperacoes(String tipo){
+        if(tipo.equals("admin")){
+            JFrame telaEmprestimo = new JFrame("Tela Operacoes");
+            telaEmprestimo.setSize(600, 600);
+
+            JPanel panelEmprestimo = new JPanel();
+
+            JButton realizarEmpBt = new JButton("Cadastrar Emprestimo");
+            JButton consultarBt = new JButton("Consultar Livro");
+
+            panelEmprestimo.add(realizarEmpBt);
+            panelEmprestimo.add(consultarBt);
+
+            telaEmprestimo.add(panelEmprestimo);
+            telaEmprestimo.setVisible(true);
+        }
+        else{
+            JFrame telaEmprestimo = new JFrame("Tela Operacoes");
+            telaEmprestimo.setSize(600, 600);
+
+            JPanel panelEmprestimo = new JPanel();
+
+            JButton consultarBt = new JButton("Consultar Livro");
+
+            panelEmprestimo.add(consultarBt);
+
+            telaEmprestimo.add(panelEmprestimo);
+            telaEmprestimo.setVisible(true);
+        }
     };
     
     public static void telaCadastrarEmprestimo(){

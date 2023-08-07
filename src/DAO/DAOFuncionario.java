@@ -1,6 +1,7 @@
 package DAO;
 
 import Modelo.Funcionario;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -8,6 +9,7 @@ public class DAOFuncionario implements DAOInterface<Funcionario>{
     private List<Funcionario> listaFuncionarios;
 
     public DAOFuncionario() {
+        listaFuncionarios = new ArrayList<>();
     }
 
     @Override
@@ -35,13 +37,10 @@ public class DAOFuncionario implements DAOInterface<Funcionario>{
     @Override
     public void remover(Funcionario objeto) {
         listaFuncionarios.remove(objeto);
-    }
+    }    
+    
 
     public List<Funcionario> getListaFuncionarios() {
         return listaFuncionarios;
-    }
-
-    public void setListaFuncionarios(List<Funcionario> listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
     }
 }
