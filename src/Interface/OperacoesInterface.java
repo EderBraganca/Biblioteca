@@ -2,7 +2,6 @@ package Interface;
 
 import DAO.DAOEmprestimo;
 import DAO.DAOLivro;
-import DAO.DAOLivro;
 import Dados.Dados;
 import Modelo.Emprestimo;
 import Modelo.Funcionario;

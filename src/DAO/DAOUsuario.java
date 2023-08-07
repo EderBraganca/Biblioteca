@@ -2,7 +2,6 @@ package DAO;
 
 import Dados.Dados;
 import Modelo.Usuario;
-import java.util.ArrayList;
 import java.util.List;
 
 

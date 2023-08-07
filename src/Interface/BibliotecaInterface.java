@@ -6,6 +6,7 @@ import static Interface.CategoriaInterface.telaCrudCategoria;
 import static Interface.LivroInterface.telaCrudLivro;
 import static Interface.OperacoesInterface.telaOperacoes;
 import static Interface.UsuarioInterface.telaCrudUsuario;
+import Principal.Biblioteca;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
@@ -14,6 +15,8 @@ public class BibliotecaInterface {
     Dados dados = Dados.getDados();
     
     public static void InterfaceInicialAdmin(String[] args) {
+        JFrame telaInicial = new JFrame("Tela Inicial");
+        
         ActionListener acaoBotaoFunc = (ActionEvent e) -> {
             telaCrudFuncionario();
         };
@@ -32,8 +35,10 @@ public class BibliotecaInterface {
         ActionListener acaoBotaoEmp = (ActionEvent e) -> {
             telaOperacoes("admin");
         };
-
-        JFrame telaInicial = new JFrame("Tela Inicial");
+        ActionListener acaoBotaoLogoff = (ActionEvent e) -> {
+            telaInicial.dispose();
+            Biblioteca.main(args);
+        };
         
         telaInicial.setSize(600, 600);
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,18 +70,25 @@ public class BibliotecaInterface {
         crudEmprestimoBt.addActionListener(acaoBotaoEmp);
         menu.add(crudEmprestimoBt);
         
+        JButton logoffBt = new JButton("Sair");
+        logoffBt.addActionListener(acaoBotaoLogoff);
+        menu.add(logoffBt);
+        
         telaInicial.add(menu);
         
         telaInicial.setVisible(true);
     }    
     
     public static void InterfaceInicialUsuario(String[] args) {
+        JFrame telaInicial = new JFrame("Tela Inicial");
+        
         ActionListener acaoBotaoEmp = (ActionEvent e) -> {
             telaOperacoes("Usuario");
         };
-
-        JFrame telaInicial = new JFrame("Tela Inicial");
-        telaInicial.setLocationRelativeTo(null);
+        ActionListener acaoBotaoLogoff = (ActionEvent e) -> {
+            telaInicial.dispose();
+            Biblioteca.main(args);
+        };
         
         telaInicial.setSize(600, 600);
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,8 +99,13 @@ public class BibliotecaInterface {
         crudEmprestimoBt.addActionListener(acaoBotaoEmp);
         menu.add(crudEmprestimoBt);
         
+        JButton logoffBt = new JButton("Sair");
+        logoffBt.addActionListener(acaoBotaoLogoff);
+        menu.add(logoffBt);
+        
         telaInicial.add(menu);
         
+        telaInicial.setLocationRelativeTo(null);
         telaInicial.setVisible(true);
     }    
 }

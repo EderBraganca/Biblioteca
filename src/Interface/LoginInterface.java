@@ -42,7 +42,6 @@ public class LoginInterface extends BibliotecaInterface{
         buttonGroup.add(radioFuncionario);
         buttonGroup.add(radioUsuario);
         
-        // Botão de login
         JButton btnLogin = new JButton("Login");
         btnLogin.addActionListener((ActionEvent e) -> {
             String usuario = txtUsuario.getText();
@@ -55,20 +54,19 @@ public class LoginInterface extends BibliotecaInterface{
             }
             else if (radioFuncionario.isSelected()) {
                 for(Funcionario func : dados.listaFuncionarios){
-                    if(func.getMatricula() == Integer.valueOf(usuario)){
+                    if(func.getNome().equals(usuario) && func.getMatricula() == Integer.valueOf(senha)){
                         dialog.dispose();
                     }
                 }
             } else if (radioUsuario.isSelected()) {
-                for(Usuario usu : dados.listaUsuarios){
-                    if(usu.getRegistroAcademico() == Integer.valueOf(usuario)){
+                for(Usuario user : dados.listaUsuarios){
+                    if(user.getNome().equals(usuario) && user.getRegistroAcademico() == Integer.valueOf(senha)){
                         dialog.dispose();
                     }
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Selecione o tipo de usuário.");
             }
-             dialog.dispose();
         });
         
         JPanel panelUsuario = new JPanel();
@@ -100,7 +98,7 @@ public class LoginInterface extends BibliotecaInterface{
         if (radioAdmin.isSelected()) {
             return "Admin";
         }else if (radioFuncionario.isSelected()) {
-            return "Funcionario";
+            return "Funcionário";
         } else if (radioUsuario.isSelected()) {
             return "Usuário";
         } else {
@@ -110,13 +108,5 @@ public class LoginInterface extends BibliotecaInterface{
 
     public JDialog getDialog() {
         return dialog;
-    }
-    
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new LoginInterface();
-            }
-        });
     }
 }

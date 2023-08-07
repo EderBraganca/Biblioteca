@@ -17,11 +17,11 @@ public class Biblioteca {
                         JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
                         LoginInterface.InterfaceInicialAdmin(args);
                         break;
-                    case "Funcionario":
+                    case "Funcionário":
                         JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
                         LoginInterface.InterfaceInicialAdmin(args);
                         break;
-                    case "Usuario":
+                    case "Usuário":
                         JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
                         LoginInterface.InterfaceInicialUsuario(args);
                         break;
