@@ -1,15 +1,20 @@
 package DAO;
 
+import Dados.Dados;
 import Modelo.Categoria;
 import java.util.List;
 
 
 public class DAOCategoria implements DAOInterface<Categoria>{
-    private List<Categoria> listaCategorias;
+    private Dados dados = Dados.getDados();
+
+    public DAOCategoria(Dados dados) {
+        this.dados = dados;
+    }
     
     @Override
     public void cadastrar(Categoria objeto) {
-        listaCategorias.add(objeto);
+        dados.listaCategorias.add(objeto);
     }
     
     public void cadastrar(int id, String titulo){
@@ -19,12 +24,12 @@ public class DAOCategoria implements DAOInterface<Categoria>{
 
     @Override
     public List<Categoria> listar() {
-        return listaCategorias;
+        return dados.listaCategorias;
     }
 
     @Override
     public void atualizar(Categoria objeto) {        
-        for(Categoria x : listaCategorias){
+        for(Categoria x : dados.listaCategorias){
             if(x.getId() == objeto.getId()){
                 x.setTitulo(objeto.getTitulo());
                 break;
@@ -34,14 +39,6 @@ public class DAOCategoria implements DAOInterface<Categoria>{
 
     @Override
     public void remover(Categoria objeto) {
-        listaCategorias.remove(objeto);
-    }
-    
-    public List<Categoria> getListaCategorias() {
-        return listaCategorias;
-    }
-
-    public void setListaCategorias(List<Categoria> listaCategorias) {
-        this.listaCategorias = listaCategorias;
+        dados.listaCategorias.remove(objeto);
     }
 }

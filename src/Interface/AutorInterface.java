@@ -5,6 +5,7 @@ import Modelo.Autor;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -24,13 +25,24 @@ public class AutorInterface {
     private DefaultTableModel tableModel;
     
     public static void telaCrudAutor(){
+        AutorInterface autorInterface = new AutorInterface();
+        
+        ActionListener acaoCadastrarBt = (ActionEvent e) -> {
+            autorInterface.telaCadastrarAutor();
+        };
+        ActionListener acaoListarBt = (ActionEvent e) -> {
+            autorInterface.telaListarAutor();
+        };
+        
         JFrame telaAutor = new JFrame("Tela Autor");
         telaAutor.setSize(600, 600);
         
         JPanel panelAutor = new JPanel();
         
         JButton cadastrarBt = new JButton("Cadastrar");
+        cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
+        listarBt.addActionListener(acaoListarBt);
 
         panelAutor.add(cadastrarBt);
         panelAutor.add(listarBt);

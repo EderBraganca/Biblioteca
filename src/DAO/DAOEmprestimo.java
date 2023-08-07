@@ -1,20 +1,17 @@
 package DAO;
 
+import Dados.Dados;
 import Modelo.Emprestimo;
 import java.util.Date;
 import java.util.List;
 
 
 public class DAOEmprestimo implements DAOInterface<Emprestimo>{
-    private List<Emprestimo> listaEmprestimos;
+    private Dados dados = Dados.getDados();
 
-    public DAOEmprestimo(List<Emprestimo> listaEmprestimos) {
-        this.listaEmprestimos = listaEmprestimos;
-    }
-    
     @Override
     public void cadastrar(Emprestimo objeto) {
-        listaEmprestimos.add(objeto);
+        dados.listaEmprestimos.add(objeto);
     }
     
     public void cadastrar(int id, int idFuncionario, int idUsuario, int idLivro, Date dataEmprestimo){
@@ -24,12 +21,12 @@ public class DAOEmprestimo implements DAOInterface<Emprestimo>{
 
     @Override
     public List<Emprestimo> listar() {
-        return listaEmprestimos;
+        return dados.listaEmprestimos;
     }
 
     @Override
     public void atualizar(Emprestimo objeto) {
-        for(Emprestimo x : listaEmprestimos){
+        for(Emprestimo x : dados.listaEmprestimos){
             if(x.getId() == objeto.getId()){
                 x.setDataEmprestimo(objeto.getDataEmprestimo());
                 x.setIdFuncionario(objeto.getIdFuncionario());
@@ -42,15 +39,6 @@ public class DAOEmprestimo implements DAOInterface<Emprestimo>{
 
     @Override
     public void remover(Emprestimo objeto) {
-        listaEmprestimos.remove(objeto);
+        dados.listaEmprestimos.remove(objeto);
     }
-
-    public List<Emprestimo> getListaEmprestimos() {
-        return listaEmprestimos;
-    }
-
-    public void setListaEmprestimos(List<Emprestimo> listaEmprestimos) {
-        this.listaEmprestimos = listaEmprestimos;
-    }
-    
 }

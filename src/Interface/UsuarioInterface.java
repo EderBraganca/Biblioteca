@@ -5,6 +5,7 @@ import Modelo.Usuario;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -24,14 +25,25 @@ public class UsuarioInterface {
     private DefaultTableModel tableModel;
     
     public static void telaCrudUsuario(){
+        UsuarioInterface usuarioInterface = new UsuarioInterface();
+        
+        ActionListener acaoCadastrarBt = (ActionEvent e) -> {
+            usuarioInterface.telaCadastrarUsuario();
+        };
+        ActionListener acaoListarBt = (ActionEvent e) -> {
+            usuarioInterface.telaListarUsuario();
+        };
+
         JFrame telaUsuario = new JFrame("Tela Usuario");
         telaUsuario.setSize(600, 600);
         
         JPanel panelUsuario = new JPanel();
         
         JButton cadastrarBt = new JButton("Cadastrar");
+        cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
-
+        listarBt.addActionListener(acaoListarBt);
+        
         panelUsuario.add(cadastrarBt);
         panelUsuario.add(listarBt);
         

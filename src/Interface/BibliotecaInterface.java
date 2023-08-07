@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class BibliotecaInterface {
-    Dados dados = new Dados();
+    Dados dados = Dados.getDados();
     
     public static void InterfaceInicialAdmin(String[] args) {
         ActionListener acaoBotaoFunc = (ActionEvent e) -> {

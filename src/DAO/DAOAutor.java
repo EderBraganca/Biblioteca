@@ -1,15 +1,16 @@
 package DAO;
 
+import Dados.Dados;
 import Modelo.Autor;
 import java.util.List;
 
 
 public class DAOAutor implements DAOInterface<Autor>{
-    private List<Autor> listaAutores;
+    private Dados dados = Dados.getDados();
 
     @Override
     public void cadastrar(Autor objeto) {
-        listaAutores.add(objeto);
+        dados.listaAutores.add(objeto);
     }
     
     public void cadastrar(int id, String nome, String sobreNome, String biografia) {
@@ -19,12 +20,12 @@ public class DAOAutor implements DAOInterface<Autor>{
 
     @Override
     public List<Autor> listar() {
-        return listaAutores;
+        return dados.listaAutores;
     }
 
     @Override
     public void atualizar(Autor objeto) {
-        for(Autor x : listaAutores){
+        for(Autor x : dados.listaAutores){
             if(x.getId() == objeto.getId()){
                 x.setNome(objeto.getNome());
                 x.setSobreNome(objeto.getSobreNome());
@@ -36,15 +37,6 @@ public class DAOAutor implements DAOInterface<Autor>{
 
     @Override
     public void remover(Autor objeto) {
-        listaAutores.remove(objeto);
+        dados.listaAutores.remove(objeto);
     }
-
-    public List<Autor> getListaAutores() {
-        return listaAutores;
-    }
-
-    public void setListaAutores(List<Autor> listaAutores) {
-        this.listaAutores = listaAutores;
-    }
-    
 }

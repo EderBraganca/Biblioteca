@@ -1,30 +1,27 @@
 package DAO;
 
+import Dados.Dados;
 import Modelo.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class DAOFuncionario implements DAOInterface<Funcionario>{
-    private List<Funcionario> listaFuncionarios;
-
-    public DAOFuncionario() {
-        listaFuncionarios = new ArrayList<>();
-    }
+    private Dados dados = Dados.getDados();
 
     @Override
     public void cadastrar(Funcionario objeto) {     
-        listaFuncionarios.add(objeto);
+        dados.listaFuncionarios.add(objeto);
     }
 
     @Override
     public List<Funcionario> listar() {
-        return listaFuncionarios;
+        return dados.listaFuncionarios;
     }
 
     @Override
     public void atualizar(Funcionario objeto) {   
-        for(Funcionario x : listaFuncionarios){
+        for(Funcionario x : dados.listaFuncionarios){
             if(x.getId() == objeto.getId()){
                 x.setMatricula(objeto.getMatricula());
                 x.setNome(objeto.getNome());
@@ -36,11 +33,6 @@ public class DAOFuncionario implements DAOInterface<Funcionario>{
 
     @Override
     public void remover(Funcionario objeto) {
-        listaFuncionarios.remove(objeto);
+        dados.listaFuncionarios.remove(objeto);
     }    
-    
-
-    public List<Funcionario> getListaFuncionarios() {
-        return listaFuncionarios;
-    }
 }

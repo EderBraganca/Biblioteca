@@ -7,13 +7,13 @@ import Modelo.Livro;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -31,13 +31,24 @@ public class LivroInterface extends BibliotecaInterface{
     private DefaultTableModel tableModel;
     
     public static void telaCrudLivro(){
+        LivroInterface livroInterface = new LivroInterface();
+        
+        ActionListener acaoCadastrarBt = (ActionEvent e) -> {
+            livroInterface.telaCadastrarLivro();
+        };
+        ActionListener acaoListarBt = (ActionEvent e) -> {
+            livroInterface.telaListarLivro();
+        };
+        
         JFrame telaLivro = new JFrame("Tela Livro");
         telaLivro.setSize(600, 600);
         
         JPanel panelLivro = new JPanel();
         
         JButton cadastrarBt = new JButton("Cadastrar");
+        cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
+        listarBt.addActionListener(acaoListarBt);
 
         panelLivro.add(cadastrarBt);
         panelLivro.add(listarBt);

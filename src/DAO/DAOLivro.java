@@ -1,15 +1,16 @@
 package DAO;
 
+import Dados.Dados;
 import Modelo.Livro;
 import java.util.List;
 
 
 public class DAOLivro implements DAOInterface<Livro>{
-    private List<Livro> listaLivros;
+    private Dados dados = Dados.getDados();
     
     @Override
     public void cadastrar(Livro objeto) {
-        listaLivros.add(objeto);
+        dados.listaLivros.add(objeto);
     }
     
     public void cadastrar(int id, String titulo, List<Integer> categoria, List<Integer> autor) {
@@ -19,12 +20,12 @@ public class DAOLivro implements DAOInterface<Livro>{
 
     @Override
     public List<Livro> listar() {
-        return listaLivros;
+        return dados.listaLivros;
     }
 
     @Override
     public void atualizar(Livro objeto) {
-        for(Livro x : listaLivros){
+        for(Livro x : dados.listaLivros){
             if(x.getId() == objeto.getId()){
                 x.setAutores(objeto.getAutores());
                 x.setCategorias(objeto.getCategorias());
@@ -36,14 +37,6 @@ public class DAOLivro implements DAOInterface<Livro>{
 
     @Override
     public void remover(Livro objeto) {
-        listaLivros.remove(objeto);
-    }
-
-    public List<Livro> getListaLivros() {
-        return listaLivros;
-    }
-
-    public void setListaLivros(List<Livro> listaLivros) {
-        this.listaLivros = listaLivros;
+        dados.listaLivros.remove(objeto);
     }
 }

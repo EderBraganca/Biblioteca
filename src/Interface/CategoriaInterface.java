@@ -5,6 +5,7 @@ import Modelo.Categoria;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -19,20 +20,31 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 
-public class CategoriaInterface {
+public class CategoriaInterface extends BibliotecaInterface{
     
-    DAOCategoria categoriaDAO = new DAOCategoria();
+    DAOCategoria categoriaDAO = new DAOCategoria(dados);
     private JTable tableCategorias;
     private DefaultTableModel tableModel;
     
     public static void telaCrudCategoria(){
+        CategoriaInterface categoriaInterface = new CategoriaInterface();
+        
+        ActionListener acaoCadastrarBt = (ActionEvent e) -> {
+            categoriaInterface.telaCadastrarCategoria();
+        };
+        ActionListener acaoListarBt = (ActionEvent e) -> {
+            categoriaInterface.telaListarCategoria();
+        };
+        
         JFrame telaCategoria = new JFrame("Tela Categoria");
         telaCategoria.setSize(600, 600);
         
         JPanel panelCategoria = new JPanel();
         
         JButton cadastrarBt = new JButton("Cadastrar");
+        cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
+        listarBt.addActionListener(acaoListarBt);
 
         panelCategoria.add(cadastrarBt);
         panelCategoria.add(listarBt);

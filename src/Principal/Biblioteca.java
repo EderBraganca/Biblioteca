@@ -9,25 +9,25 @@ public class Biblioteca {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 LoginInterface telaLogin = new LoginInterface();
-
-                telaLogin.getDialog().setVisible(true);
-
+                telaLogin.telaLogin();
                 String tipoPessoa = telaLogin.getTipoPessoa();
 
-                if (tipoPessoa.equals("Admin")) {
-                    JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
-                    telaLogin.InterfaceInicialAdmin(args);
-                } 
-                else if (tipoPessoa.equals("Funcionario")) {
-                    JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
-                    telaLogin.InterfaceInicialAdmin(args);
-                } 
-                else if (tipoPessoa.equals("Usuario")) {
-                    JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
-                    telaLogin.InterfaceInicialUsuario(args);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Nenhum tipo de pessoa selecionado.");
-                    System.exit(0);
+                switch (tipoPessoa) {
+                    case "Admin":
+                        JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
+                        LoginInterface.InterfaceInicialAdmin(args);
+                        break;
+                    case "Funcionario":
+                        JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
+                        LoginInterface.InterfaceInicialAdmin(args);
+                        break;
+                    case "Usuario":
+                        JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
+                        LoginInterface.InterfaceInicialUsuario(args);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Nenhum tipo de pessoa selecionado.");
+                        System.exit(0);
                 }
             }
         });

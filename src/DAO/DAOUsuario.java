@@ -1,15 +1,17 @@
 package DAO;
 
+import Dados.Dados;
 import Modelo.Usuario;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class DAOUsuario implements DAOInterface<Usuario>{
-    private List<Usuario> listaUsuarios;
+    private Dados dados = Dados.getDados();
     
     @Override
     public void cadastrar(Usuario objeto) {
-        listaUsuarios.add(objeto);
+        dados.listaUsuarios.add(objeto);
     }
    
     public void cadastrar(int id, String nome, String sobreNome, int registroAcademico) {
@@ -19,12 +21,12 @@ public class DAOUsuario implements DAOInterface<Usuario>{
 
     @Override
     public List<Usuario> listar() {
-        return listaUsuarios;
+        return dados.listaUsuarios;
     }
 
     @Override
     public void atualizar(Usuario objeto) {
-        for(Usuario x : listaUsuarios){
+        for(Usuario x : dados.listaUsuarios){
             if(x.getId() == objeto.getId()){
                 x.setNome(objeto.getNome());
                 x.setSobreNome(objeto.getSobreNome());
@@ -36,14 +38,6 @@ public class DAOUsuario implements DAOInterface<Usuario>{
 
     @Override
     public void remover(Usuario objeto) {
-        listaUsuarios.remove(objeto);
-    }
-
-    public List<Usuario> getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public void setListaUsuarios(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+        dados.listaUsuarios.remove(objeto);
     }
 }
