@@ -35,6 +35,7 @@ public class UsuarioInterface {
         };
 
         JFrame telaUsuario = new JFrame("Tela Usuario");
+        telaUsuario.setLocationRelativeTo(null);
         telaUsuario.setSize(600, 600);
         
         JPanel panelUsuario = new JPanel();
@@ -53,6 +54,7 @@ public class UsuarioInterface {
     
     public void telaCadastrarUsuario(){
         JFrame telaCadastro = new JFrame("Tela Cadastro");
+        telaCadastro.setLocationRelativeTo(null);
 
         telaCadastro.setSize(600, 600);
         JPanel panelCadastro = new JPanel(new GridLayout(5, 2));
@@ -107,6 +109,7 @@ public class UsuarioInterface {
     
     public void telaListarUsuario(){
         JFrame telaUsuario = new JFrame("Tela Listagem");
+        telaUsuario.setLocationRelativeTo(null);
         telaUsuario.setSize(600, 600);
         telaUsuario.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

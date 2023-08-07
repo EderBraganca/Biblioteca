@@ -27,6 +27,7 @@ public class LoginInterface extends BibliotecaInterface{
         dialog.setLayout(new GridLayout(5, 1));
         dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         dialog.setModal(true);
+        dialog.setLocationRelativeTo(null);
 
         JLabel lblUsuario = new JLabel("Usuário:");
         txtUsuario = new JTextField(20);

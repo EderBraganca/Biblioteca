@@ -36,6 +36,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
         };
 
         JFrame telaFuncionario = new JFrame("Tela Funcionario");
+        telaFuncionario.setLocationRelativeTo(null);
         telaFuncionario.setSize(600, 600);
 
         JPanel panelFuncionario = new JPanel();

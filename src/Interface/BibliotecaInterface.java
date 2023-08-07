@@ -37,7 +37,8 @@ public class BibliotecaInterface {
         
         telaInicial.setSize(600, 600);
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        telaInicial.setLocationRelativeTo(null);
+        
         JPanel menu = new JPanel();
      
         JButton crudFuncionarioBt = new JButton("Funcionario");
@@ -75,6 +76,7 @@ public class BibliotecaInterface {
         };
 
         JFrame telaInicial = new JFrame("Tela Inicial");
+        telaInicial.setLocationRelativeTo(null);
         
         telaInicial.setSize(600, 600);
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
