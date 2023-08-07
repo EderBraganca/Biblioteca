@@ -6,10 +6,6 @@ import java.util.List;
 
 public class DAOUsuario implements DAOInterface<Usuario>{
     private List<Usuario> listaUsuarios;
-
-    public DAOUsuario(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
     
     @Override
     public void cadastrar(Usuario objeto) {

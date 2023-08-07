@@ -2,7 +2,7 @@ package Interface;
 import Dados.Dados;
 import static Interface.AutorInterface.telaCrudAutor;
 import static Interface.FuncionarioInterface.telaCrudFuncionario;
-import static Interface.LivroInterface.telaCrudCategoria;
+import static Interface.CategoriaInterface.telaCrudCategoria;
 import static Interface.LivroInterface.telaCrudLivro;
 import static Interface.OperacoesInterface.telaOperacoes;
 import static Interface.UsuarioInterface.telaCrudUsuario;
@@ -51,7 +51,6 @@ public class BibliotecaInterface {
         JButton crudLivroBt = new JButton("Livro");
         crudLivroBt.addActionListener(acaoBotaoLivro);
         menu.add(crudLivroBt);
-        
         
         JButton crudAutorBt = new JButton("Autor");
         crudAutorBt.addActionListener(acaoBotaoAutor);

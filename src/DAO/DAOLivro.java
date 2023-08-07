@@ -6,10 +6,6 @@ import java.util.List;
 
 public class DAOLivro implements DAOInterface<Livro>{
     private List<Livro> listaLivros;
-
-    public DAOLivro(List<Livro> listaLivros) {
-        this.listaLivros = listaLivros;
-    }
     
     @Override
     public void cadastrar(Livro objeto) {

@@ -6,10 +6,6 @@ import java.util.List;
 
 public class DAOCategoria implements DAOInterface<Categoria>{
     private List<Categoria> listaCategorias;
-
-    public DAOCategoria(List<Categoria> listaCategorias) {
-        this.listaCategorias = listaCategorias;
-    }
     
     @Override
     public void cadastrar(Categoria objeto) {
