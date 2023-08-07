@@ -35,7 +35,6 @@ public class AutorInterface {
         };
         
         JFrame telaAutor = new JFrame("Tela Autor");
-        telaAutor.setLocationRelativeTo(null);
         telaAutor.setSize(600, 600);
         
         JPanel panelAutor = new JPanel();
@@ -49,12 +48,12 @@ public class AutorInterface {
         panelAutor.add(listarBt);
         
         telaAutor.add(panelAutor);
+        telaAutor.setLocationRelativeTo(null);
         telaAutor.setVisible(true);
     };
     
     public void telaCadastrarAutor(){
         JFrame telaCadastro = new JFrame("Tela Cadastro");
-        telaCadastro.setLocationRelativeTo(null);
 
         telaCadastro.setSize(600, 600);
         JPanel panelCadastro = new JPanel(new GridLayout(5, 2));
@@ -104,12 +103,12 @@ public class AutorInterface {
         panelCadastro.add(salvarBt);
 
         telaCadastro.add(panelCadastro);
+        telaCadastro.setLocationRelativeTo(null);
         telaCadastro.setVisible(true);
     };
     
     public void telaListarAutor(){
         JFrame telaAutor = new JFrame("Tela Listagem");
-        telaAutor.setLocationRelativeTo(null);
         telaAutor.setSize(600, 600);
         telaAutor.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -166,6 +165,7 @@ public class AutorInterface {
         panelListagem.add(panelBotoes, BorderLayout.SOUTH);
 
         telaAutor.add(panelListagem);
+        telaAutor.setLocationRelativeTo(null);
         telaAutor.setVisible(true);
     }
 

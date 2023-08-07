@@ -41,7 +41,6 @@ public class LivroInterface extends BibliotecaInterface{
         };
         
         JFrame telaLivro = new JFrame("Tela Livro");
-        telaLivro.setLocationRelativeTo(null);
         telaLivro.setSize(600, 600);
         
         JPanel panelLivro = new JPanel();
@@ -55,12 +54,12 @@ public class LivroInterface extends BibliotecaInterface{
         panelLivro.add(listarBt);
         
         telaLivro.add(panelLivro);
+        telaLivro.setLocationRelativeTo(null);
         telaLivro.setVisible(true);
     };
     
     public void telaCadastrarLivro(){
         JFrame telaCadastro = new JFrame("Tela Cadastro");
-        telaCadastro.setLocationRelativeTo(null);
         telaCadastro.setSize(600, 600);
         JPanel panelCadastro = new JPanel(new GridLayout(5, 2));
 
@@ -152,12 +151,12 @@ public class LivroInterface extends BibliotecaInterface{
         panelCadastro.add(salvarBt);
 
         telaCadastro.add(panelCadastro);
+        telaCadastro.setLocationRelativeTo(null);
         telaCadastro.setVisible(true);
     }
     
     public void telaListarLivro(){
         JFrame telaLivro = new JFrame("Tela Listagem");
-        telaLivro.setLocationRelativeTo(null);
         telaLivro.setSize(600, 600);
         telaLivro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -214,12 +213,12 @@ public class LivroInterface extends BibliotecaInterface{
         panelListagem.add(panelBotoes, BorderLayout.SOUTH);
 
         telaLivro.add(panelListagem);
+        telaLivro.setLocationRelativeTo(null);
         telaLivro.setVisible(true);
     }
 
     private void exibirTelaEditarLivro(Livro livro) {
         JTextField campoTitulo = new JTextField(livro.getTitulo());
-
         JPanel panelEditar = new JPanel();
         panelEditar.setLayout(new BoxLayout(panelEditar, BoxLayout.Y_AXIS));
         panelEditar.add(new JLabel("Titulo:"));

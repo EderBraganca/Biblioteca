@@ -36,7 +36,6 @@ public class FuncionarioInterface extends BibliotecaInterface {
         };
 
         JFrame telaFuncionario = new JFrame("Tela Funcionario");
-        telaFuncionario.setLocationRelativeTo(null);
         telaFuncionario.setSize(600, 600);
 
         JPanel panelFuncionario = new JPanel();
@@ -50,6 +49,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
         panelFuncionario.add(listarBt);
 
         telaFuncionario.add(panelFuncionario);
+        telaFuncionario.setLocationRelativeTo(null);
         telaFuncionario.setVisible(true);
     }
     
@@ -104,6 +104,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
         panelCadastro.add(salvarBt);
 
         telaCadastro.add(panelCadastro);
+        telaCadastro.setLocationRelativeTo(null);
         telaCadastro.setVisible(true);
     }
     
@@ -165,6 +166,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
         panelListagem.add(panelBotoes, BorderLayout.SOUTH);
 
         telaFuncionario.add(panelListagem);
+        telaFuncionario.setLocationRelativeTo(null);
         telaFuncionario.setVisible(true);
     }
 

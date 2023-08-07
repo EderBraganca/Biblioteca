@@ -6,10 +6,6 @@ import javax.swing.JPanel;
 
 public class OperacoesInterface {
 
-    public static void telaOperacoesAdmin(){
-
-    };
-    
     public static void telaOperacoes(String tipo){
         if(tipo.equals("admin")){
             JFrame telaEmprestimo = new JFrame("Tela Operacoes");
@@ -24,6 +20,7 @@ public class OperacoesInterface {
             panelEmprestimo.add(consultarBt);
 
             telaEmprestimo.add(panelEmprestimo);
+            telaEmprestimo.setLocationRelativeTo(null);
             telaEmprestimo.setVisible(true);
         }
         else{
@@ -37,6 +34,7 @@ public class OperacoesInterface {
             panelEmprestimo.add(consultarBt);
 
             telaEmprestimo.add(panelEmprestimo);
+            telaEmprestimo.setLocationRelativeTo(null);
             telaEmprestimo.setVisible(true);
         }
     };
@@ -54,6 +52,7 @@ public class OperacoesInterface {
         panelCadastro.add(salvarBt);
         
         telaCadastro.add(panelCadastro);
+        telaCadastro.setLocationRelativeTo(null);
         telaCadastro.setVisible(true);
     };
     
@@ -70,6 +69,7 @@ public class OperacoesInterface {
         panelFuncionario.add(listarBt);
         
         telaFuncionario.add(panelFuncionario);
+        telaFuncionario.setLocationRelativeTo(null);
         telaFuncionario.setVisible(true);
     };
 }

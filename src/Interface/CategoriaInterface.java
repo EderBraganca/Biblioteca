@@ -37,7 +37,6 @@ public class CategoriaInterface extends BibliotecaInterface{
         };
         
         JFrame telaCategoria = new JFrame("Tela Categoria");
-        telaCategoria.setLocationRelativeTo(null);
         telaCategoria.setSize(600, 600);
         
         JPanel panelCategoria = new JPanel();
@@ -51,12 +50,12 @@ public class CategoriaInterface extends BibliotecaInterface{
         panelCategoria.add(listarBt);
         
         telaCategoria.add(panelCategoria);
+        telaCategoria.setLocationRelativeTo(null);
         telaCategoria.setVisible(true);
     };
     
     public void telaCadastrarCategoria(){
         JFrame telaCadastro = new JFrame("Tela Cadastro");
-        telaCadastro.setLocationRelativeTo(null);
         
         telaCadastro.setSize(600, 600);
         JPanel panelCadastro = new JPanel(new GridLayout(5, 2));
@@ -94,12 +93,12 @@ public class CategoriaInterface extends BibliotecaInterface{
         panelCadastro.add(salvarBt);
 
         telaCadastro.add(panelCadastro);
+        telaCadastro.setLocationRelativeTo(null);
         telaCadastro.setVisible(true);
     };
     
     public void telaListarCategoria(){
         JFrame telaCategoria = new JFrame("Tela Listagem");
-        telaCategoria.setLocationRelativeTo(null);
         telaCategoria.setSize(600, 600);
         telaCategoria.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -156,6 +155,7 @@ public class CategoriaInterface extends BibliotecaInterface{
         panelListagem.add(panelBotoes, BorderLayout.SOUTH);
 
         telaCategoria.add(panelListagem);
+        telaCategoria.setLocationRelativeTo(null);
         telaCategoria.setVisible(true);
     }
 

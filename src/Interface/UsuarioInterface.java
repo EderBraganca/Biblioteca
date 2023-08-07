@@ -35,7 +35,6 @@ public class UsuarioInterface {
         };
 
         JFrame telaUsuario = new JFrame("Tela Usuario");
-        telaUsuario.setLocationRelativeTo(null);
         telaUsuario.setSize(600, 600);
         
         JPanel panelUsuario = new JPanel();
@@ -49,12 +48,12 @@ public class UsuarioInterface {
         panelUsuario.add(listarBt);
         
         telaUsuario.add(panelUsuario);
+        telaUsuario.setLocationRelativeTo(null);
         telaUsuario.setVisible(true);
     };
     
     public void telaCadastrarUsuario(){
         JFrame telaCadastro = new JFrame("Tela Cadastro");
-        telaCadastro.setLocationRelativeTo(null);
 
         telaCadastro.setSize(600, 600);
         JPanel panelCadastro = new JPanel(new GridLayout(5, 2));
@@ -104,12 +103,12 @@ public class UsuarioInterface {
         panelCadastro.add(salvarBt);
 
         telaCadastro.add(panelCadastro);
+        telaCadastro.setLocationRelativeTo(null);
         telaCadastro.setVisible(true);
     };
     
     public void telaListarUsuario(){
         JFrame telaUsuario = new JFrame("Tela Listagem");
-        telaUsuario.setLocationRelativeTo(null);
         telaUsuario.setSize(600, 600);
         telaUsuario.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -166,6 +165,7 @@ public class UsuarioInterface {
         panelListagem.add(panelBotoes, BorderLayout.SOUTH);
 
         telaUsuario.add(panelListagem);
+        telaUsuario.setLocationRelativeTo(null);
         telaUsuario.setVisible(true);
     }
 
