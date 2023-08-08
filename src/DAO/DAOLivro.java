@@ -5,7 +5,7 @@ import Modelo.Livro;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//Classe DAO responsavel por livro e suas funções basicas, aqui sao tratadas as operações dos dados
 public class DAOLivro implements DAOInterface<Livro>{
     private Dados dados = Dados.getDados();
     
@@ -40,7 +40,7 @@ public class DAOLivro implements DAOInterface<Livro>{
     public void remover(Livro objeto) {
         dados.listaLivros.remove(objeto);
     }
-    
+    //Função utilizada na tela de ConsultarLivro
     public List<Livro> buscarLivroPeloTitulo(String titulo){
         List<Livro> pesquisa = new ArrayList<>();
         

@@ -4,7 +4,7 @@ import Dados.Dados;
 import Modelo.Funcionario;
 import java.util.List;
 
-
+//Classe DAO responsavel por funcionario e suas funções basicas, aqui sao tratadas as operações dos dados
 public class DAOFuncionario implements DAOInterface<Funcionario>{
     private Dados dados = Dados.getDados();
 

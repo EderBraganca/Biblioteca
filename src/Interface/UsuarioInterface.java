@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+//Classe para a tela de usuarios
 public class UsuarioInterface {
     DAOUsuario usuarioDAO = new DAOUsuario();
     private JTable tableUsuarios;
@@ -27,6 +28,7 @@ public class UsuarioInterface {
     public static void telaCrudUsuario(){
         UsuarioInterface usuarioInterface = new UsuarioInterface();
         JFrame telaUsuario = new JFrame("Tela Usuario");
+        //Acoes dos botoes da interface inicial da tela
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             usuarioInterface.telaCadastrarUsuario();
         };
@@ -58,6 +60,7 @@ public class UsuarioInterface {
     };
     
     public void telaCadastrarUsuario(){
+        //Tela de formulario onde estao os componentes de cadastro
         JFrame telaCadastro = new JFrame("Tela Cadastro");
 
         telaCadastro.setSize(600, 600);
@@ -80,7 +83,8 @@ public class UsuarioInterface {
             telaCadastro.dispose();
         });
         JButton salvarBt = new JButton("Salvar");
-
+        
+        //Função salvar do formulario com tratamento try/catch
         salvarBt.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(inputId.getText());

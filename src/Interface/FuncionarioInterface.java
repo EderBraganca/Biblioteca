@@ -19,8 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+//Classe para a tela de funcionarios
 public class FuncionarioInterface extends BibliotecaInterface {
-
     private final DAOFuncionario funcionarioDAO = new DAOFuncionario();
     private JTable tableFuncionarios;
     private DefaultTableModel tableModel;
@@ -29,6 +29,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
         FuncionarioInterface funcionarioInterface = new FuncionarioInterface();
         JFrame telaFuncionario = new JFrame("Tela Funcionario");
 
+        //Acoes dos botoes da interface inicial da tela
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             funcionarioInterface.telaCadastrarFuncionario();
         };
@@ -60,6 +61,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
     }
     
     public void telaCadastrarFuncionario() {
+        //Tela de formulario onde estao os componentes de cadastro
         JFrame telaCadastro = new JFrame("Tela Cadastro");
 
         telaCadastro.setSize(600, 600);
@@ -83,6 +85,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
         });
         JButton salvarBt = new JButton("Salvar");
 
+        //Função salvar do formulario com tratamento try/catch
         salvarBt.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(inputId.getText());

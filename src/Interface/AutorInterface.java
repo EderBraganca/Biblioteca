@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+//Classe para a tela de autores
 public class AutorInterface {
     DAOAutor autorDAO = new DAOAutor();
     private JTable tableAutores;
@@ -28,6 +29,7 @@ public class AutorInterface {
         AutorInterface autorInterface = new AutorInterface();
         JFrame telaAutor = new JFrame("Tela Autor");
         
+        //Acoes dos botoes da interface inicial da tela
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             autorInterface.telaCadastrarAutor();
         };
@@ -59,6 +61,7 @@ public class AutorInterface {
     };
     
     public void telaCadastrarAutor(){
+        //Tela de formulario onde estao os componentes de cadastro
         JFrame telaCadastro = new JFrame("Tela Cadastro");
 
         telaCadastro.setSize(600, 600);
@@ -82,6 +85,7 @@ public class AutorInterface {
         });
         JButton salvarBt = new JButton("Salvar");
 
+        //Função salvar do formulario com tratamento try/catch
         salvarBt.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(inputId.getText());

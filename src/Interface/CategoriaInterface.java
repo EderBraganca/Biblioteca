@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-
+//Classe para a tela de categorias
 public class CategoriaInterface extends BibliotecaInterface{
     
     DAOCategoria categoriaDAO = new DAOCategoria(dados);
@@ -30,6 +30,7 @@ public class CategoriaInterface extends BibliotecaInterface{
         CategoriaInterface categoriaInterface = new CategoriaInterface();
         JFrame telaCategoria = new JFrame("Tela Categoria");
         
+        //Acoes dos botoes da interface inicial da tela
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             categoriaInterface.telaCadastrarCategoria();
         };
@@ -61,6 +62,7 @@ public class CategoriaInterface extends BibliotecaInterface{
     };
     
     public void telaCadastrarCategoria(){
+        //Tela de formulario onde estao os componentes de cadastro
         JFrame telaCadastro = new JFrame("Tela Cadastro");
         
         telaCadastro.setSize(600, 600);
@@ -77,7 +79,8 @@ public class CategoriaInterface extends BibliotecaInterface{
             telaCadastro.dispose();
         });
         JButton salvarBt = new JButton("Salvar");
-
+        
+        //Função salvar do formulario com tratamento try/catch
         salvarBt.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(inputId.getText());

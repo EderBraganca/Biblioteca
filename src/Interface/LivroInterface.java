@@ -27,6 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+//Classe para a tela de livros
 public class LivroInterface extends BibliotecaInterface {
     
     DAOLivro livroDAO = new DAOLivro();
@@ -37,6 +38,7 @@ public class LivroInterface extends BibliotecaInterface {
         LivroInterface livroInterface = new LivroInterface();
         JFrame telaLivro = new JFrame("Tela Livro");
         
+        //Acoes dos botoes da interface inicial da tela
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             livroInterface.telaCadastrarLivro();
         };
@@ -68,6 +70,7 @@ public class LivroInterface extends BibliotecaInterface {
     }
     
     public void telaCadastrarLivro() {
+        //Tela de formulario onde estao os componentes de cadastro
         JFrame telaCadastro = new JFrame("Tela Cadastro");
         telaCadastro.setSize(600, 600);
         JPanel panelCadastro = new JPanel(new GridLayout(5, 2));
@@ -108,6 +111,7 @@ public class LivroInterface extends BibliotecaInterface {
         });
         JButton salvarBt = new JButton("Salvar");
         
+        //Função salvar do formulario com tratamento try/catch
         salvarBt.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(inputId.getText());

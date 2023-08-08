@@ -14,6 +14,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+
+//Classe para a tela de login
 public class LoginInterface extends BibliotecaInterface{
     private JDialog dialog;
     private JTextField txtUsuario, txtSenha;
@@ -42,7 +44,7 @@ public class LoginInterface extends BibliotecaInterface{
         buttonGroup.add(radioUsuario);
         
         JButton btnLogin = new JButton("Login");
-        btnLogin.addActionListener((ActionEvent e) -> {
+        btnLogin.addActionListener((ActionEvent e) -> {//Ação responsavel por tratar o login do sistema
             String usuario = txtUsuario.getText();
             String senha = txtSenha.getText();
             
@@ -51,13 +53,13 @@ public class LoginInterface extends BibliotecaInterface{
                     dialog.dispose();
                 }
             }
-            else if (radioFuncionario.isSelected()) {
+            else if (radioFuncionario.isSelected()) {//Funcionario utiliza a matricula como senha e nome como usuario
                 for(Funcionario func : dados.listaFuncionarios){
                     if(func.getNome().equals(usuario) && func.getMatricula() == Integer.valueOf(senha)){
                         dialog.dispose();
                     }
                 }
-            } else if (radioUsuario.isSelected()) {
+            } else if (radioUsuario.isSelected()) {//Usuario utiliza o registro academico como senha e nome como usuario
                 for(Usuario user : dados.listaUsuarios){
                     if(user.getNome().equals(usuario) && user.getRegistroAcademico() == Integer.valueOf(senha)){
                         dialog.dispose();
@@ -93,7 +95,7 @@ public class LoginInterface extends BibliotecaInterface{
         dialog.setVisible(true);
     }
     
-    public String getTipoPessoa() {
+    public String getTipoPessoa() {//Função utilizada para retornar o tipo de usuario que realizou o login
         if (radioAdmin.isSelected()) {
             return "Admin";
         }else if (radioFuncionario.isSelected()) {

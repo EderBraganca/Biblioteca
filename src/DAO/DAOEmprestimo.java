@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 
+//Classe DAO responsavel por Emprestimo e suas funções basicas, aqui sao tratadas as operações dos dados
 public class DAOEmprestimo implements DAOInterface<Emprestimo>{
     private Dados dados = Dados.getDados();
 

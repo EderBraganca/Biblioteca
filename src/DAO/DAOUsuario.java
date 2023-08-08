@@ -4,7 +4,7 @@ import Dados.Dados;
 import Modelo.Usuario;
 import java.util.List;
 
-
+//Classe DAO responsavel por Usuario e suas funções basicas, aqui sao tratadas as operações dos dados
 public class DAOUsuario implements DAOInterface<Usuario>{
     private Dados dados = Dados.getDados();
     

@@ -7,18 +7,20 @@ import static Interface.LivroInterface.telaCrudLivro;
 import static Interface.OperacoesInterface.telaOperacoes;
 import static Interface.UsuarioInterface.telaCrudUsuario;
 import Principal.Biblioteca;
-import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
+//Classe para a tela Inicial
 public class BibliotecaInterface {
     Dados dados = Dados.getDados();
     
+    //Tela inicial para o Administrador/Funcionario
     public static void InterfaceInicialAdmin(String[] args) {
         JFrame telaInicial = new JFrame("Tela Inicial");
         
+        //Acoes dos botoes da interface inicial da tela
         ActionListener acaoBotaoFunc = (ActionEvent e) -> {
             telaCrudFuncionario();
         };
@@ -88,6 +90,7 @@ public class BibliotecaInterface {
         telaInicial.setVisible(true);
     }    
     
+    //Tela inicial para o usuario
     public static void InterfaceInicialUsuario(String[] args) {
         JFrame telaInicial = new JFrame("Tela Inicial");
         

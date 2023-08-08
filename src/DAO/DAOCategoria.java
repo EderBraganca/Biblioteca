@@ -4,7 +4,7 @@ import Dados.Dados;
 import Modelo.Categoria;
 import java.util.List;
 
-
+//Classe DAO responsavel por Categoria e suas funções basicas, aqui sao tratadas as operações dos dados
 public class DAOCategoria implements DAOInterface<Categoria>{
     private Dados dados = Dados.getDados();
 

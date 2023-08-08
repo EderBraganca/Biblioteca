@@ -12,24 +12,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import javax.swing.text.MaskFormatter;
 
+//Classe para a tela de operações
 public class OperacoesInterface extends BibliotecaInterface{
     Dados dados = Dados.getDados();
     DAOLivro livroDAO = new DAOLivro();
@@ -40,6 +36,7 @@ public class OperacoesInterface extends BibliotecaInterface{
         JFrame telaEmprestimo = new JFrame("Tela Operacoes");
         telaEmprestimo.setSize(600, 600);
         
+        //Acoes dos botoes da interface inicial da tela
         ActionListener acaoRealizarEmpBt = (ActionEvent e) -> {
             operacoesInterface.telaCadastrarEmprestimo();
         };
@@ -50,6 +47,7 @@ public class OperacoesInterface extends BibliotecaInterface{
             telaEmprestimo.dispose();
         };
         
+        //Tratamento da tela para administrador/funcionario
         if(tipo.equals("admin")){
             JPanel panelEmprestimo = new JPanel(new GridLayout(4, 1));
 
@@ -68,7 +66,7 @@ public class OperacoesInterface extends BibliotecaInterface{
             telaEmprestimo.setLocationRelativeTo(null);
             telaEmprestimo.setVisible(true);
         }
-        else{
+        else{//Tratamento da tela para usuarios 
             JPanel panelEmprestimo = new JPanel(new GridLayout(4, 1));
 
             JButton consultarBt = new JButton("Consultar Livro");
@@ -86,6 +84,7 @@ public class OperacoesInterface extends BibliotecaInterface{
     };
     
     public void telaCadastrarEmprestimo(){
+        //Tela de formulario onde estao os componentes de cadastro
         JFrame telaCadastro = new JFrame("Tela Cadastro");
         telaCadastro.setSize(600, 600);
 
@@ -107,37 +106,13 @@ public class OperacoesInterface extends BibliotecaInterface{
         JFormattedTextField inputData = new JFormattedTextField(mascaraData);
 
         JLabel inputLivroLabel = new JLabel("Livro");
-        List<Livro> listaLivros = dados.listaLivros;
+        JTextField inputLivro = new JTextField(20);
 
-        List<String> nomesLivros = new ArrayList<>();
-        for (Livro livro : listaLivros) {
-            nomesLivros.add(livro.getTitulo());
-        }
+        JLabel inputUsuarioLabel = new JLabel("Registro Usuario");
+        JTextField inputUsuario = new JTextField(20);
 
-        JList<String> livrosList = new JList<>(nomesLivros.toArray(new String[0]));
-        livrosList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        JLabel inputUsuarioLabel = new JLabel("Usuario");
-        List<Usuario> listaUsuarios = dados.listaUsuarios;
-
-        List<String> nomesUsuarios = new ArrayList<>();
-        for (Usuario usuario : listaUsuarios) {
-            nomesUsuarios.add(usuario.getNome());
-        }
-
-        JList<String> usuariosList = new JList<>(nomesUsuarios.toArray(new String[0]));
-        usuariosList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        JLabel inputFuncionarioLabel = new JLabel("Funcionario");
-        List<Funcionario> listaFuncionarios = dados.listaFuncionarios;
-
-        List<String> nomesFuncionarios = new ArrayList<>();
-        for (Funcionario funcionario : listaFuncionarios) {
-            nomesFuncionarios.add(funcionario.getNome());
-        }
-
-        JList<String> funcionariosList = new JList<>(nomesFuncionarios.toArray(new String[0]));
-        funcionariosList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JLabel inputFuncionarioLabel = new JLabel("Matricula Funcionario ");
+        JTextField inputFuncionario = new JTextField(20);
 
         JButton cancelarBt = new JButton("Voltar");
         cancelarBt.addActionListener(e -> {
@@ -145,9 +120,15 @@ public class OperacoesInterface extends BibliotecaInterface{
         });
         JButton salvarBt = new JButton("Salvar");
 
+        //Função salvar do formulario com tratamento try/catch
         salvarBt.addActionListener(e -> {
             try {
+                int userExiste = 0, livroExiste = 0, funcExiste = 0;
                 int id = Integer.parseInt(inputId.getText());
+                String livro = inputLivro.getText();
+                int idLivro = 0;
+                int registro = Integer.parseInt(inputUsuario.getText());
+                int matricula = Integer.parseInt(inputFuncionario.getText());
                 Date dataEmprestimo;
 
                 try {
@@ -156,38 +137,37 @@ public class OperacoesInterface extends BibliotecaInterface{
                     JOptionPane.showMessageDialog(null, "Data inválida!");
                     return;
                 }
-                
-                Map<String, Integer> mapaLivros = new HashMap<>();
-                for (Livro livro : listaLivros) {
-                    mapaLivros.put(livro.getTitulo(), livro.getId());
+                for(Usuario x : dados.listaUsuarios){
+                    if(x.getRegistroAcademico() == registro)
+                        userExiste = 1;
                 }
-
-                Map<String, Integer> mapaUsuarios = new HashMap<>();
-                for (Usuario usuario : listaUsuarios) {
-                    mapaUsuarios.put(usuario.getNome(), usuario.getId());
+                for(Funcionario x : dados.listaFuncionarios){
+                    if(x.getMatricula() == matricula)
+                        funcExiste = 1;
                 }
-                
-                Map<String, Integer> mapaFuncionarios = new HashMap<>();
-                for (Funcionario funcionario : listaFuncionarios) {
-                    mapaFuncionarios.put(funcionario.getNome(), funcionario.getId());
+                for(Livro x : dados.listaLivros){
+                    if(x.getTitulo().equals(livro)){
+                        livroExiste = 1;
+                        idLivro = x.getId();
+                    }
                 }
-                
-                String nomeLivroSelecionado = livrosList.getSelectedValue();
-                int idLivroSelecionado = mapaLivros.get(nomeLivroSelecionado);
-                
-                String nomeUsuarioSelecionado = usuariosList.getSelectedValue();
-                int idUsuarioSelecionado = mapaUsuarios.get(nomeUsuarioSelecionado);
-                
-                String nomeFuncionarioSelecionado = funcionariosList.getSelectedValue();
-                int idFuncionarioSelecionado = mapaFuncionarios.get(nomeFuncionarioSelecionado);
-
-                Emprestimo newEmprestimo = new Emprestimo(id, dataEmprestimo, idLivroSelecionado, idUsuarioSelecionado, idFuncionarioSelecionado);
-                emprestimoDAO.cadastrar(newEmprestimo);
-
-                JOptionPane.showMessageDialog(null, "Salvo com Sucesso!");
+                if(userExiste == 1 && livroExiste == 1 && funcExiste == 1){
+                    Emprestimo newEmprestimo = new Emprestimo(id, dataEmprestimo, idLivro, registro, matricula);
+                    emprestimoDAO.cadastrar(newEmprestimo);
+                    JOptionPane.showMessageDialog(null, "Salvo com Sucesso!");
+                }
+                else if(livroExiste == 0){
+                    JOptionPane.showMessageDialog(null, "Livro invalido!");
+                }
+                else if(userExiste == 0){
+                    JOptionPane.showMessageDialog(null, "Usuario invalido!");
+                }
+                else if(funcExiste == 0){
+                    JOptionPane.showMessageDialog(null, "Funcionario invalido!");
+                }
             } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Valores inválidos!");
-        }
+                JOptionPane.showMessageDialog(null, "Valores inválidos!");
+            }
         });
 
         panelCadastro.add(inputIdLabel);
@@ -195,11 +175,11 @@ public class OperacoesInterface extends BibliotecaInterface{
         panelCadastro.add(inputDataLabel);
         panelCadastro.add(inputData);
         panelCadastro.add(inputLivroLabel);
-        panelCadastro.add(livrosList);
+        panelCadastro.add(inputLivro);
         panelCadastro.add(inputUsuarioLabel);
-        panelCadastro.add(usuariosList);
+        panelCadastro.add(inputUsuario);
         panelCadastro.add(inputFuncionarioLabel);
-        panelCadastro.add(funcionariosList);
+        panelCadastro.add(inputFuncionario);
 
         panelCadastro.add(cancelarBt);
         panelCadastro.add(salvarBt);
@@ -210,6 +190,7 @@ public class OperacoesInterface extends BibliotecaInterface{
     };
     
     public void telaConsultar(){
+        //Tela onde são feitas as pesquisas, tanto para usuario, tanto para funcionarios
         JFrame telaFuncionario = new JFrame("Tela Consulta");
         telaFuncionario.setSize(600, 600);
 

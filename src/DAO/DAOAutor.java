@@ -5,6 +5,7 @@ import Modelo.Autor;
 import java.util.List;
 
 
+//Classe DAO responsavel por autor e suas funções basicas, aqui sao tratadas as operações dos dados
 public class DAOAutor implements DAOInterface<Autor>{
     private Dados dados = Dados.getDados();
 

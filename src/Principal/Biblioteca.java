@@ -4,6 +4,7 @@ import Interface.LoginInterface;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+//Classe respolsavel pelo inicio do programa e controle de usuarios
 public class Biblioteca {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -13,15 +14,15 @@ public class Biblioteca {
                 String tipoPessoa = telaLogin.getTipoPessoa();
 
                 switch (tipoPessoa) {
-                    case "Admin":
+                    case "Admin"://Tratamento do administrador
                         JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
                         LoginInterface.InterfaceInicialAdmin(args);
                         break;
-                    case "Funcionário":
+                    case "Funcionário"://Tratamento do funcionario
                         JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
                         LoginInterface.InterfaceInicialAdmin(args);
                         break;
-                    case "Usuário":
+                    case "Usuário"://Tratamento do usuario
                         JOptionPane.showMessageDialog(null, "Bem-vindo, " + tipoPessoa + "!");
                         LoginInterface.InterfaceInicialUsuario(args);
                         break;

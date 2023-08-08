@@ -9,6 +9,7 @@ import Modelo.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
+//Classe utilizada para a manipulação dos dados
 public class Dados {
     private static Dados dados;
 
