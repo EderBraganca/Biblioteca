@@ -69,7 +69,7 @@ public class OperacoesInterface extends BibliotecaInterface{
             telaEmprestimo.setVisible(true);
         }
         else{
-            JPanel panelEmprestimo = new JPanel();
+            JPanel panelEmprestimo = new JPanel(new GridLayout(4, 1));
 
             JButton consultarBt = new JButton("Consultar Livro");
             consultarBt.addActionListener(acaoConsultarBt);

@@ -5,6 +5,7 @@ import Modelo.Autor;
 import Modelo.Categoria;
 import Modelo.Livro;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -86,7 +88,7 @@ public class LivroInterface extends BibliotecaInterface {
         
         JList<String> categoriaList = new JList<>(nomesCategorias.toArray(new String[0]));
         categoriaList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        categoriaList.ensureIndexIsVisible(categoriaList.getSelectedIndex());
+        categoriaList.setBorder(BorderFactory.createLineBorder(Color.black));
         
         JLabel inputAutorLabel = new JLabel("Autores");
         List<Autor> listaAutores = dados.listaAutores;        
@@ -98,6 +100,7 @@ public class LivroInterface extends BibliotecaInterface {
         
         JList<String> autoresList = new JList<>(nomesAutores.toArray(new String[0]));
         autoresList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        autoresList.setBorder(BorderFactory.createLineBorder(Color.black));
         
         JButton cancelarBt = new JButton("Voltar");
         cancelarBt.addActionListener(e -> {
