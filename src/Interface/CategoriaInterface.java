@@ -28,26 +28,32 @@ public class CategoriaInterface extends BibliotecaInterface{
     
     public static void telaCrudCategoria(){
         CategoriaInterface categoriaInterface = new CategoriaInterface();
+        JFrame telaCategoria = new JFrame("Tela Categoria");
         
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             categoriaInterface.telaCadastrarCategoria();
         };
         ActionListener acaoListarBt = (ActionEvent e) -> {
             categoriaInterface.telaListarCategoria();
+        };        
+        ActionListener acaoVoltarBt = (ActionEvent e) -> {
+            telaCategoria.dispose();
         };
         
-        JFrame telaCategoria = new JFrame("Tela Categoria");
         telaCategoria.setSize(600, 600);
         
-        JPanel panelCategoria = new JPanel();
+        JPanel panelCategoria = new JPanel(new GridLayout(4, 1));
         
         JButton cadastrarBt = new JButton("Cadastrar");
         cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
         listarBt.addActionListener(acaoListarBt);
+        JButton voltarBt = new JButton("Voltar");
+        voltarBt.addActionListener(acaoVoltarBt);
 
         panelCategoria.add(cadastrarBt);
         panelCategoria.add(listarBt);
+        panelCategoria.add(voltarBt);
         
         telaCategoria.add(panelCategoria);
         telaCategoria.setLocationRelativeTo(null);

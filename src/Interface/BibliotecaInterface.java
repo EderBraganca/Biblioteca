@@ -7,6 +7,8 @@ import static Interface.LivroInterface.telaCrudLivro;
 import static Interface.OperacoesInterface.telaOperacoes;
 import static Interface.UsuarioInterface.telaCrudUsuario;
 import Principal.Biblioteca;
+import java.awt.Component;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
@@ -39,12 +41,15 @@ public class BibliotecaInterface {
             telaInicial.dispose();
             Biblioteca.main(args);
         };
+        ActionListener acaoBotaoExit = (ActionEvent e) -> {
+            System.exit(0);
+        };
         
         telaInicial.setSize(600, 600);
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         telaInicial.setLocationRelativeTo(null);
         
-        JPanel menu = new JPanel();
+        JPanel menu = new JPanel(new GridLayout(4, 1));
      
         JButton crudFuncionarioBt = new JButton("Funcionario");
         crudFuncionarioBt.addActionListener(acaoBotaoFunc);
@@ -70,12 +75,16 @@ public class BibliotecaInterface {
         crudEmprestimoBt.addActionListener(acaoBotaoEmp);
         menu.add(crudEmprestimoBt);
         
-        JButton logoffBt = new JButton("Sair");
+        JButton logoffBt = new JButton("Logout");
         logoffBt.addActionListener(acaoBotaoLogoff);
         menu.add(logoffBt);
         
-        telaInicial.add(menu);
+        JButton exitBt = new JButton("Sair");
+        exitBt.addActionListener(acaoBotaoExit);
+        menu.add(exitBt);
         
+        telaInicial.add(menu);
+    
         telaInicial.setVisible(true);
     }    
     
@@ -89,19 +98,26 @@ public class BibliotecaInterface {
             telaInicial.dispose();
             Biblioteca.main(args);
         };
+        ActionListener acaoBotaoExit = (ActionEvent e) -> {
+            System.exit(0);
+        };
         
         telaInicial.setSize(600, 600);
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel menu = new JPanel();
+        JPanel menu = new JPanel(new GridLayout(4, 1));
         
         JButton crudEmprestimoBt = new JButton("Operacoes");
         crudEmprestimoBt.addActionListener(acaoBotaoEmp);
         menu.add(crudEmprestimoBt);
         
-        JButton logoffBt = new JButton("Sair");
+        JButton logoffBt = new JButton("Logout");
         logoffBt.addActionListener(acaoBotaoLogoff);
         menu.add(logoffBt);
+        
+        JButton exitBt = new JButton("Sair");
+        exitBt.addActionListener(acaoBotaoExit);
+        menu.add(exitBt);
         
         telaInicial.add(menu);
         

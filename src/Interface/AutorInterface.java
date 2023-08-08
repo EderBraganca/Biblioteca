@@ -26,6 +26,7 @@ public class AutorInterface {
     
     public static void telaCrudAutor(){
         AutorInterface autorInterface = new AutorInterface();
+        JFrame telaAutor = new JFrame("Tela Autor");
         
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             autorInterface.telaCadastrarAutor();
@@ -33,19 +34,24 @@ public class AutorInterface {
         ActionListener acaoListarBt = (ActionEvent e) -> {
             autorInterface.telaListarAutor();
         };
+        ActionListener acaoVoltarBt = (ActionEvent e) -> {
+            telaAutor.dispose();
+        };
         
-        JFrame telaAutor = new JFrame("Tela Autor");
         telaAutor.setSize(600, 600);
         
-        JPanel panelAutor = new JPanel();
+        JPanel panelAutor = new JPanel(new GridLayout(4, 1));
         
         JButton cadastrarBt = new JButton("Cadastrar");
         cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
         listarBt.addActionListener(acaoListarBt);
+        JButton voltarBt = new JButton("Voltar");
+        voltarBt.addActionListener(acaoVoltarBt);
 
         panelAutor.add(cadastrarBt);
         panelAutor.add(listarBt);
+        panelAutor.add(voltarBt);
         
         telaAutor.add(panelAutor);
         telaAutor.setLocationRelativeTo(null);

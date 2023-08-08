@@ -26,26 +26,31 @@ public class UsuarioInterface {
     
     public static void telaCrudUsuario(){
         UsuarioInterface usuarioInterface = new UsuarioInterface();
-        
+        JFrame telaUsuario = new JFrame("Tela Usuario");
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             usuarioInterface.telaCadastrarUsuario();
         };
         ActionListener acaoListarBt = (ActionEvent e) -> {
             usuarioInterface.telaListarUsuario();
         };
+        ActionListener acaoVoltarBt = (ActionEvent e) -> {
+            telaUsuario.dispose();
+        };
 
-        JFrame telaUsuario = new JFrame("Tela Usuario");
         telaUsuario.setSize(600, 600);
         
-        JPanel panelUsuario = new JPanel();
+        JPanel panelUsuario = new JPanel(new GridLayout(4, 1));
         
         JButton cadastrarBt = new JButton("Cadastrar");
         cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
         listarBt.addActionListener(acaoListarBt);
+        JButton voltarBt = new JButton("Voltar");
+        voltarBt.addActionListener(acaoVoltarBt);
         
         panelUsuario.add(cadastrarBt);
         panelUsuario.add(listarBt);
+        panelUsuario.add(voltarBt);
         
         telaUsuario.add(panelUsuario);
         telaUsuario.setLocationRelativeTo(null);

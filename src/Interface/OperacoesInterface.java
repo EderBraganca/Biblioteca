@@ -37,6 +37,8 @@ public class OperacoesInterface extends BibliotecaInterface{
     
     public static void telaOperacoes(String tipo){
         OperacoesInterface operacoesInterface = new OperacoesInterface();
+        JFrame telaEmprestimo = new JFrame("Tela Operacoes");
+        telaEmprestimo.setSize(600, 600);
         
         ActionListener acaoRealizarEmpBt = (ActionEvent e) -> {
             operacoesInterface.telaCadastrarEmprestimo();
@@ -44,35 +46,38 @@ public class OperacoesInterface extends BibliotecaInterface{
         ActionListener acaoConsultarBt = (ActionEvent e) -> {
             operacoesInterface.telaConsultar();
         };
+        ActionListener acaoVoltarBt = (ActionEvent e) -> {
+            telaEmprestimo.dispose();
+        };
         
         if(tipo.equals("admin")){
-            JFrame telaEmprestimo = new JFrame("Tela Operacoes");
-            telaEmprestimo.setSize(600, 600);
-
-            JPanel panelEmprestimo = new JPanel();
+            JPanel panelEmprestimo = new JPanel(new GridLayout(4, 1));
 
             JButton realizarEmpBt = new JButton("Cadastrar Emprestimo");
             realizarEmpBt.addActionListener(acaoRealizarEmpBt);
             JButton consultarBt = new JButton("Consultar Livro");
             consultarBt.addActionListener(acaoConsultarBt);
+            JButton voltarBt = new JButton("Voltar");
+            voltarBt.addActionListener(acaoVoltarBt);
             
             panelEmprestimo.add(realizarEmpBt);
             panelEmprestimo.add(consultarBt);
+            panelEmprestimo.add(voltarBt);
 
             telaEmprestimo.add(panelEmprestimo);
             telaEmprestimo.setLocationRelativeTo(null);
             telaEmprestimo.setVisible(true);
         }
         else{
-            JFrame telaEmprestimo = new JFrame("Tela Operacoes");
-            telaEmprestimo.setSize(600, 600);
-
             JPanel panelEmprestimo = new JPanel();
 
             JButton consultarBt = new JButton("Consultar Livro");
             consultarBt.addActionListener(acaoConsultarBt);
+            JButton voltarBt = new JButton("Voltar");
+            voltarBt.addActionListener(acaoVoltarBt);
 
             panelEmprestimo.add(consultarBt);
+            panelEmprestimo.add(voltarBt);
 
             telaEmprestimo.add(panelEmprestimo);
             telaEmprestimo.setLocationRelativeTo(null);
@@ -225,7 +230,9 @@ public class OperacoesInterface extends BibliotecaInterface{
                 
                 areaResultado.setText(""); 
                 for (Livro livro : resultadosBusca) {
-                    areaResultado.append("Título: " + livro.getTitulo() + "\n");
+                    areaResultado.append("Título: " + livro.getTitulo() + " - ");
+                    areaResultado.append("Autores: " + livro.getAutores() + " - ");
+                    areaResultado.append("Categorias: " + livro.getCategorias());
                     areaResultado.append("\n");
                 }
             }

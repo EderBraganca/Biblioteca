@@ -27,6 +27,7 @@ public class FuncionarioInterface extends BibliotecaInterface {
 
     public static void telaCrudFuncionario() {
         FuncionarioInterface funcionarioInterface = new FuncionarioInterface();
+        JFrame telaFuncionario = new JFrame("Tela Funcionario");
 
         ActionListener acaoCadastrarBt = (ActionEvent e) -> {
             funcionarioInterface.telaCadastrarFuncionario();
@@ -34,19 +35,24 @@ public class FuncionarioInterface extends BibliotecaInterface {
         ActionListener acaoListarBt = (ActionEvent e) -> {
             funcionarioInterface.telaListarFuncionario();
         };
+        ActionListener acaoVoltarBt = (ActionEvent e) -> {
+            telaFuncionario.dispose();
+        };
 
-        JFrame telaFuncionario = new JFrame("Tela Funcionario");
         telaFuncionario.setSize(600, 600);
 
-        JPanel panelFuncionario = new JPanel();
+        JPanel panelFuncionario = new JPanel(new GridLayout(4, 1));
 
         JButton cadastrarBt = new JButton("Cadastrar");
         cadastrarBt.addActionListener(acaoCadastrarBt);
         JButton listarBt = new JButton("Listar");
         listarBt.addActionListener(acaoListarBt);
+        JButton voltarBt = new JButton("Voltar");
+        voltarBt.addActionListener(acaoVoltarBt);
 
         panelFuncionario.add(cadastrarBt);
         panelFuncionario.add(listarBt);
+        panelFuncionario.add(voltarBt);
 
         telaFuncionario.add(panelFuncionario);
         telaFuncionario.setLocationRelativeTo(null);
